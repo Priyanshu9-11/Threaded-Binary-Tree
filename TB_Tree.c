@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// Define the binary tree structure
 struct bintree {
     int info;
     struct bintree *left, *right;
     int leftthread, rightthread;
 };
-
 typedef struct bintree node;
-
-// Function to find the inorder successor
 node *insucc(node *s) {
     if (s->rightthread == 1) {
         return s->right;
@@ -22,7 +17,7 @@ node *insucc(node *s) {
     return s;
 }
 
-// Function to traverse the threaded binary tree in inorder
+
 void tbtinorder(node *s) {
     if (s == NULL) {
         return;
@@ -40,7 +35,7 @@ void tbtinorder(node *s) {
     }
 }
 
-// Utility function to create a new node
+
 node* createNode(int info) {
     node* newNode = (node*)malloc(sizeof(node));
     newNode->info = info;
@@ -49,13 +44,13 @@ node* createNode(int info) {
     return newNode;
 }
 
-// Function to insert a node in the threaded binary tree
+
 node* insert(node* root, int info) {
     node* newNode = createNode(info);
     node* current = root;
     node* parent = NULL;
 
-    // Traverse to find the correct position to insert the new node
+    
     while (current != NULL) {
         parent = current;
 
@@ -95,7 +90,7 @@ int main() {
     node* root = NULL;
     int choice, val;
 
-    // User input to build the tree
+    
     while (1) {
         printf("\n1. Insert\n2. Inorder Traversal\n3. Exit\n");
         printf("Enter your choice: ");
